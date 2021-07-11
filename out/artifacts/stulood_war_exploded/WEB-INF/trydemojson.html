@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Tell IE to use the latest, best version. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>黄山市BUilding</title>
+    <script src="cesiumbul/Cesium.js"></script>
+    <script type="text/javascript" src="cesiumbul/Apps/Sandcastle/Sandcastle-header.js"></script>
+    <!--//<script src="http://localhost:8090/geoserver/testtif/wms"  ></script>-->
+    <style>
+        @import url("cesiumbul/Apps/Sandcastle/templates/bucket.css");
+    </style>
+</head>
+
+<body>
+<div id="cesiumContainer" class="fullSize"></div>
+<div id="loadingOverlay">
+    <h1>Loading...</h1>
+</div>
+<div id="toolbar"></div>
+<script>
+    var viewer = new Cesium.Viewer('cesiumContainer');
+    //加载屯溪范围文件
+    var promise = Cesium.GeoJsonDataSource.load("geojson/trydemosomewater180.json");
+    promise.then(function(dataSource){
+        viewer.dataSources.add(dataSource);
+        var entities = dataSource.entities.values;
+        for(var i = 0; i < entities.length; i++) {
+            var entity = entities[i];
+            entity.billboard = undefined;
+            entity.rectangle  = new Cesium.RectangleGraphics({
+
+            });
+        }
+    });
+    viewer.flyTo(promise);
+
+</script>
+</body>
+
+</html>

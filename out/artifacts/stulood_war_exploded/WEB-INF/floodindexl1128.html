@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Tell IE to use the latest, best version. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>黄山市BUilding</title>
+    <script src="cesiumbul/Cesium.js"></script>
+    <script type="text/javascript" src="cesiumbul/Apps/Sandcastle/Sandcastle-header.js"></script>
+    <style>
+        @import url("cesiumbul/Apps/Sandcastle/templates/bucket.css");
+    </style>
+</head>
+
+<body>
+<div id="cesiumContainer" class="fullSize"></div>
+<div id="loadingOverlay">
+    <h1>Loading...</h1>
+</div>
+<div id="toolbar"></div>
+
+<script type="text/javascript">
+    //Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlMzQ4YWJlNi0xOGJmLTQ4MjItOGFjOS0xNzAyZWRjM2ExYjQiLCJpZCI6MzgwNTIsImlhdCI6MTYwNTgzOTkyOX0.5QaAqcjfTZ_mX8m726Kny-c6_1MOQpkkdexS_46yfZA';
+    //创建图层世界地形
+    var viewer = new Cesium.Viewer("cesiumContainer", {
+
+            terrainProvider: Cesium.createWorldTerrain(),
+        }
+
+    );
+    //加入OSMBuilding层显示建筑物
+    viewer.scene.primitives.add(Cesium.createOsmBuildings());
+    //加载屯溪范围文件
+    var dataSource = Cesium.GeoJsonDataSource.load("geojson/tx.json", {
+            clampToGround: true //设置贴地显示，避免图层分离
+        }
+
+    );
+    viewer.dataSources.add(dataSource);
+
+    //转向屯溪流域
+    viewer.scene.camera.flyTo({
+            destination: Cesium.Cartesian3.fromDegrees(118.306, 29.699, 750),
+            orientation: {
+                heading: Cesium.Math.toRadians(20),
+                pitch: Cesium.Math.toRadians(-20),
+            },
+        }
+
+    );
+    var pinBuilder = new Cesium.PinBuilder();
+    var mxPin = viewer.entities.add({
+        name: "黟县",
+        position: Cesium.Cartesian3.fromDegrees(117.961563, 29.92579),
+        billboard: {
+            image: pinBuilder.fromColor(Cesium.Color.ROYALBLUE, 48).toDataURL(),
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+        },
+    });
+    var rcPin = viewer.entities.add({
+        name: "儒村",
+        position: Cesium.Cartesian3.fromDegrees(118.091714, 29.966923),
+        billboard: {
+            image: pinBuilder.fromColor(Cesium.Color.ROYALBLUE, 48).toDataURL(),
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+        },
+    });
+    var yqPin = viewer.entities.add({
+        name: "岩前",
+        position: Cesium.Cartesian3.fromDegrees(118.056214, 29.823565),
+        billboard: {
+            image: pinBuilder.fromColor(Cesium.Color.ROYALBLUE, 48).toDataURL(),
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+        },
+    });
+    var xnPin = viewer.entities.add({
+        name: "休宁",
+        position: Cesium.Cartesian3.fromDegrees(118.204276, 29.794456),
+        billboard: {
+            image: pinBuilder.fromColor(Cesium.Color.ROYALBLUE, 48).toDataURL(),
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+        },
+    });
+
+    var ccPin = viewer.entities.add({
+        name: "呈村",
+        position: Cesium.Cartesian3.fromDegrees(117.809915, 29.715327),
+        billboard: {
+            image: pinBuilder.fromColor(Cesium.Color.ROYALBLUE, 48).toDataURL(),
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+        },
+    });
+    var txPin = viewer.entities.add({
+        name: "屯溪",
+        position: Cesium.Cartesian3.fromDegrees(118.313043,29.698819),
+        billboard: {
+            image: pinBuilder.fromColor(Cesium.Color.ROYALBLUE, 48).toDataURL(),
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+        },
+    });
+    var smPin = viewer.entities.add({
+        name: "石门",
+        position: Cesium.Cartesian3.fromDegrees(118.145478, 29.584716),
+        billboard: {
+            image: pinBuilder.fromColor(Cesium.Color.ROYALBLUE, 48).toDataURL(),
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+        },
+    });
+    var sxkPin = viewer.entities.add({
+        name: "上溪口",
+        position: Cesium.Cartesian3.fromDegrees(118.018801, 29.692538),
+        billboard: {
+            image: pinBuilder.fromColor(Cesium.Color.ROYALBLUE, 48).toDataURL(),
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+        },
+    });
+    var wcPin = viewer.entities.add({
+        name: "五城",
+        position: Cesium.Cartesian3.fromDegrees(118.188223, 29.604602),
+        billboard: {
+            image: pinBuilder.fromColor(Cesium.Color.ROYALBLUE, 48).toDataURL(),
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+        },
+    });
+    var dlPin = viewer.entities.add({
+        name: "大连",
+        position: Cesium.Cartesian3.fromDegrees(117.895092, 29.580809),
+        billboard: {
+            image: pinBuilder.fromColor(Cesium.Color.ROYALBLUE, 48).toDataURL(),
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+        },
+    });
+    var zlPin = viewer.entities.add({
+        name: "左龙",
+        position: Cesium.Cartesian3.fromDegrees(117.723304,29.601894),
+        billboard: {
+            image: pinBuilder.fromColor(Cesium.Color.ROYALBLUE, 48).toDataURL(),
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+        },
+    });
+    Cesium.when.all(
+        [mxPin, rcPin, yqPin, xnPin, ccPin, sxkPin, wcPin, smPin, txPin,zlPin,dlPin],
+        function(pins) {
+            viewer.zoomTo(pins);
+        }
+    );
+
+    /*var scene = viewer.scene;
+                if(!scene.pickPositionSupported) {
+                    window.alert("This browser does not support pickPosition.");
+                }
+                var handler;
+                //加载鼠标点击确定地理位置的功能
+                Sandcastle.addDefaultToolbarButton(
+                    "鼠标滑过显示坐标",
+                    function() {
+                        var entity = viewer.entities.add({
+                            label: {
+                                show: false,
+                                showBackground: true,
+                                font: "14px monospace",
+                                horizontalOrigin: Cesium.HorizontalOrigin.LEFT,
+                                verticalOrigin: Cesium.VerticalOrigin.TOP,
+                                pixelOffset: new Cesium.Cartesian2(15, 0),
+                            },
+                        });
+
+                        // Mouse over the globe to see the cartographic position
+                        handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);
+                        handler.setInputAction(function(movement) {
+                            var cartesian = viewer.camera.pickEllipsoid(
+                                movement.endPosition,
+                                scene.globe.ellipsoid
+                            );
+                            if(cartesian) {
+                                var cartographic = Cesium.Cartographic.fromCartesian(cartesian);
+                                var longitudeString = Cesium.Math.toDegrees(
+                                    cartographic.longitude
+                                ).toFixed(2);
+                                var latitudeString = Cesium.Math.toDegrees(
+                                    cartographic.latitude
+                                ).toFixed(2);
+
+                                entity.position = cartesian;
+                                entity.label.show = true;
+                                entity.label.text =
+                                    "经度: " +
+                                    ("   " + longitudeString).slice(-7) +
+                                    "\u00B0" +
+                                    "\n纬度: " +
+                                    ("   " + latitudeString).slice(-7) +
+                                    "\u00B0";
+                            } else {
+                                entity.label.show = false;
+                            }
+                        }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
+                    }
+                );*/
+    /*	//绘制水面波浪效果
+
+        viewer.scene.globe.depthTestAgainstTerrain = true;
+        var waterFace = [
+            130.0, 30.0, 10,
+            150.0, 30.0, 10,
+            150.0, 10.0, 10,
+            130.0, 10.0, 10
+        ];
+        var waterPrimitive = new Cesium.Primitive({
+            show: true, // 默认隐藏
+            allowPicking: false,
+            geometryInstances: new Cesium.GeometryInstance({
+                geometry: new Cesium.PolygonGeometry({
+                    polygonHierarchy: new Cesium.PolygonHierarchy(Cesium.Cartesian3.fromDegreesArrayHeights(waterFace)),
+                    //extrudedHeight: 0,//注释掉此属性可以只显示水面
+                    //perPositionHeight : true//注释掉此属性水面就贴地了
+                })
+            }),
+            // 可以设置内置的水面shader
+            appearance: new Cesium.EllipsoidSurfaceAppearance({
+                material: new Cesium.Material({
+                    fabric: {
+                        type: 'Water',
+                        uniforms: {
+                            //baseWaterColor:new Cesium.Color(0.0, 0.0, 1.0, 0.5),
+                            //blendColor: new Cesium.Color(0.0, 0.0, 1.0, 0.5),
+                            //specularMap: 'gray.jpg',
+                            //normalMap: '../assets/waterNormals.jpg',
+                            normalMap: 'img/waterNormals.jpg',
+                            frequency: 1000.0,
+                            animationSpeed: 0.01,
+                            amplitude: 10.0
+                        }
+                    }
+                }),
+            //	fragmentShaderSource: 'varying vec3 v_positionMC;\nvarying vec3 v_positionEC;\nvarying vec2 v_st;\nvoid main()\n{\nczm_materialInput materialInput;\nvec3 normalEC = normalize(czm_normal3D * czm_geodeticSurfaceNormal(v_positionMC, vec3(0.0), vec3(1.0)));\n#ifdef FACE_FORWARD\nnormalEC = faceforward(normalEC, vec3(0.0, 0.0, 1.0), -normalEC);\n#endif\nmaterialInput.s = v_st.s;\nmaterialInput.st = v_st;\nmaterialInput.str = vec3(v_st, 0.0);\nmaterialInput.normalEC = normalEC;\nmaterialInput.tangentToEyeMatrix = czm_eastNorthUpToEyeCoordinates(v_positionMC, materialInput.normalEC);\nvec3 positionToEyeEC = -v_positionEC;\nmaterialInput.positionToEyeEC = positionToEyeEC;\nczm_material material = czm_getMaterial(materialInput);\n#ifdef FLAT\ngl_FragColor = vec4(material.diffuse + material.emission, material.alpha);\n#else\ngl_FragColor = czm_phong(normalize(positionToEyeEC), material);\gl_FragColor.a=0.5;\n#endif\n}\n'
+                //重写shader，修改水面的透明度
+            })
+        });
+
+        viewer.scene.primitives.add(waterPrimitive);
+
+        viewer.camera.flyTo({
+            destination: Cesium.Cartesian3.fromDegrees(140, 20, 6000000.0),
+            orientation: {
+                heading: Cesium.Math.toRadians(0.0), //默认朝北0度，顺时针方向，东是90度
+                pitch: Cesium.Math.toRadians(-90), //默认朝下看-90,0为水平看，
+                roll: Cesium.Math.toRadians(0) //默认0
+            }
+        });*/
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <welcome-file-list>
+        <welcome-file>project.jsp</welcome-file>
+    </welcome-file-list>
+    <!--<servlet>
+        <servlet-name>WaterpointServlet</servlet-name>
+        <servlet-class>com.yroom.flooddatainsert.servlet.WaterpointServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WaterpointServlet</servlet-name>
+        <url-pattern>/WaterpointServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>WaterpointServlet1</servlet-name>
+        <servlet-class>com.yroom.flooddatainsert.servlet.WaterpointServlet1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WaterpointServlet1</servlet-name>
+        <url-pattern>/WaterpointServlet1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HheatServlet</servlet-name>
+        <servlet-class>com.yroom.flooddatainsert.servlet.HheatServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HheatServlet</servlet-name>
+        <url-pattern>/HheatServlet</url-pattern>
+    </servlet-mapping>-->
+
+
+    <servlet>
+        <servlet-name>KuikouServlet1</servlet-name>
+        <servlet-class>com.yroom.flooddatainsert.servlet.KuikouServlet1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>KuikouServlet1</servlet-name>
+        <url-pattern>/KuikouServlet1</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>WuyuanServlet</servlet-name>
+        <servlet-class>com.yroom.flooddatainsert.servlet.WuyuanServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WuyuanServlet</servlet-name>
+        <url-pattern>/WuyuanServlet</url-pattern>
+    </servlet-mapping>
+    <jsp-config>
+        <taglib>
+            <taglib-uri>http://java.sun.com/jsp/jstl/fmt</taglib-uri>
+            <taglib-location>/WEB-INF/fmt.tld</taglib-location>
+        </taglib>
+
+        <taglib>
+            <taglib-uri>http://java.sun.com/jsp/jstl/core</taglib-uri>
+            <taglib-location>/WEB-INF/c.tld</taglib-location>
+        </taglib>
+
+        <taglib>
+            <taglib-uri>http://java.sun.com/jsp/jstl/sql</taglib-uri>
+            <taglib-location>/WEB-INF/sql.tld</taglib-location>
+        </taglib>
+        <!-- <taglib>
+             <taglib-uri>http://java.sun.com/jsp/jstl/sql-rt</taglib-uri>
+             <taglib-location>/WEB-INF/sql-rt.tld</taglib-location>
+         </taglib>-->
+        <taglib>
+            <taglib-uri>http://java.sun.com/jsp/jstl/x</taglib-uri>
+            <taglib-location>/WEB-INF/x.tld</taglib-location>
+        </taglib>
+        <!-- <taglib>
+             <taglib-uri>http://java.sun.com/jsp/jstl/x-rt</taglib-uri>
+             <taglib-location>/WEB-INF/x-rt.tld</taglib-location>
+         </taglib>-->
+    </jsp-config>
+</web-app>
+
